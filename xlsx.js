@@ -7686,9 +7686,8 @@ var XLSX = {};
 				}
 				break;
 			default:
-				if (!isNaN(+cell.v) && !cell.t)
+				if (!isNaN(+cell.v))
 					cell.t = 'n';
-				cell.t = 's';
 				vv = cell.v;
 				break;
 		}
