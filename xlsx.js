@@ -4325,6 +4325,7 @@ var XLSX = {};
 			if(s.r) sitag += s.r;
 			else {
 				sitag += "<t";
+				if (!s.t.match) s.t = s.t.toString()
 				if(s.t.match(straywsregex)) sitag += ' xml:space="preserve"';
 				sitag += ">" + escapexml(s.t) + "</t>";
 			}
@@ -7686,7 +7687,7 @@ var XLSX = {};
 				}
 				break;
 			default:
-				if (!isNaN(+cell.v))
+				if (!isNaN(+cell.v) && !cell.t)
 					cell.t = 'n';
 				vv = cell.v;
 				break;
